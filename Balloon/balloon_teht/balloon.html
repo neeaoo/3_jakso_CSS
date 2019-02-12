@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Red Balloon</title>
+</head>
+<body>
+
+<p>🎈</p>
+
+<script>
+  window.addEventListener("keydown", event => {
+    if (event.key == "ArrowDown") {
+    document.body.style.fontSize = "10%";
+  }
+  });
+  window.addEventListener("keyup", event => {
+    if (event.key == "ArrowUp" ) {
+    document.body.style.fontSize = "";
+  }
+  });
+</script>
+
+</body>
+</html>
