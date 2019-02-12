@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Parallax</title>
+</head>
+<body>
+
+<div class="layer1"></div>
+<div class="layer2"></div>
+<div class="layer3"></div>
+<div class="layer4"></div>
+
+<div id="mouse"></div><br>
+<div id="mouse-center"></div>
+
+</body>
+
+<script>
+
+  const html = document.querySelector('html');
+  const layerOne = document.querySelector('.layer1');
+  const layerTwo = document.querySelector('.layer2');
+  const layerTre = document.querySelector('.layer3');
+  const layerFou = document.querySelector('.layer4');
+  const mouse = document.querySelector('#mouse');
+  const mouse_center = document.querySelector('#mouse-center');
+
+  // Find page center
+  const cx = html.clientWidth/2;
+  const cy = html.clientHeight/2;
+
+  document.addEventListener('mousemove', (evt) => {
+
+    let mouseX = evt.clientX;
+    let mouseY = evt.clientY;
+
+  let coor = "From the top left<br> X: " + mouseX + ", Y: " + mouseY;
+  mouse.innerHTML = coor;
+
+  let from_center_x = cx - mouseX;
+  let from_center_y = cy - mouseY;
+
+  let coor2 = "From the center<br> X: " + from_center_x + ", Y: " + from_center_y;
+  mouse_center.innerHTML = coor2;
+
+  layerOne.style.transform = 'translateX(' + from_center_x/50 + '%) translateY(' + from_center_y/50 + '%)';
+  layerTwo.style.transform = 'translateX(' + from_center_x/100 + '%) translateY(' + from_center_y/50 + '%)';
+  layerTre.style.transform = 'translateX(' + from_center_x/150 + '%) translateY(' + from_center_y/80 + '%)';
+  layerFou.style.transform = 'translateX(' + from_center_x/500 + '%) translateY(' + from_center_y/500 + '%)';
+
+  });
+
+</script>
+
+</html>
